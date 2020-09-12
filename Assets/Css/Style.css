@@ -1,0 +1,35 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+}
+input[type=submit], input[value="Iniciar Sesión"]{
+    outline: none;
+    padding: 20px;
+    color: #fff;
+    background: #1B8FAE;
+    display: block;
+    width: 342px;
+    border-radius: 3px;
+    border: 1px ;
+    margin: 20px auto
+}
+input[type=submit], input[value="Registrarse"]{
+    outline: none;
+    padding: 20px;
+    color: #fff;
+    background: #1B8FAE;
+    display: block;
+    width: 342px;
+    border-radius: 3px;
+    border: 1px ;
+    margin: 20px auto
+}
+body {
+    margin:0;
+    padding:0;
+    background: linear-gradient(to right,#003045,#055585,#1578B4,#12ADCF,#FFFFFF);
+}
+

@@ -1,0 +1,11 @@
+INSERT INTO 'empresas' ('nitEmpresa', 'nombre', 'telefono', 'direccion', 'email') VALUES ('12345', 'SSS', NULL, NULL, NULL);
+
+INSERT INTO 'cargos' ('idCargo', 'noCargo', 'noPersonas', 'llegada', 'salida', 'nitEmpresa') VALUES ('1', '1', '1', '2020-09-12 08:19:37', '2020-09-13 08:19:37', '12345');
+
+INSERT INTO 'horarios' ('idHorario', 'entrada', 'salida', 'idCargo') VALUES ('1', '8', '8', '1');
+
+INSERT INTO 'jefes' ('idJefe', 'nombre', 'apellido', 'pw', 'cc', 'telefono', 'email', 'nitEmpresa', 'idCargo', 'idHorario') VALUES ('1', 'Pedro', 'Pedro', '11111', '1111', '11111', 'clcllslsls@lslsl.com', '12345', '1', '1');
+
+
+
+INSERT INTO 'empleados' ('idEmpleado', 'nombre', 'apellido', 'pw', 'cc', 'cargo', 'telefono', 'direccion', 'email', 'nitEmpresa', 'idCargo', 'idHorario', 'idJefe') VALUES ('1', 'sss', 'sss', '12345', '12345', 'cocinero', '111111', 'sdfsdfsdfsdfdsf', 'clcllslsls@lslsl.com', '12345', '1', '1', '1');
