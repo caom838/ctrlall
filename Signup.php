@@ -1,31 +1,39 @@
 <?php
-   //require 'database.php';
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Registrate</title>
+    include ('database.php');
+    if (isset($_POST['nombre']) && !empty($_POST['nombre'])) { //para verificar mejor 
+          //$conn = new PDO("mysql:host=$server;dbname=$database;",$username,$password);
+        $nombre = $_POST['nombre']; 
+        $apellido = $_POST['apellido'];
+        $cc = $_POST['cc'];
+        $telefono = $_POST['telefono'];
+        $cargo = $_POST['cargo'];
+        $email = $_POST['email'];
+        $pw = $_POST['pw'];
+        $pw2 = $_POST['pw2'];
+        $empresa = $_POST['empresa'];
 
-</head>
-<body>
-    <h1>Registrate</h1>
-    <spam>o <a href="Signup.php">Iniciar sesion</a></spam>
- 
-    <link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Assets/Css/stylesignup.css">
-<form action="database.php" method="post">
-    <input type="text" name="nombre" placeholder="Ingrese su Nombre">
-    <input type="text" name="apellido" placeholder="Ingrese su Apellido">
-    <input type="text" name="doc" placeholder="Ingrese su No.Cedula">
-    <input type="text" name="telefono" placeholder="Telefono/Celular">
-    <input type="text" name="direccion" placeholder=" Ingrese su Dirección">
-    <input type="text" name="email" placeholder="Dirección de Correo Electronico">
-    <input type="password" name="contrasena" placeholder="Ingrese su Contraseña">
-    <input type="password" name="contrasena_confirm" placeholder="Confirme su Contraseña">
-    <span ><a Style="color:black;"href="Login.php">Inicia sesión</a></span>
-    <input type="submit" value="Registrarse">
-</form>   
-    
-</body>
-</html>
+        //Esto es lo del tío de Alejandro
+        if($pw !== $pw2){
+            echo "<script>alert('Error, la contraseña no coinciden con su confirmación, por favor ingresar de nuevo');</script>";
+        }
+
+        //Realizamos la inserción de datos en empleados
+        $registrar = "INSERT INTO empleados (nombre , apellido , pw , cc , cargo , telefono , email , idEmpresa )". 
+        " VALUES ('". $nombre."','" . $apellido."','" . $pw . "','" . $cc  . "','" . $cargo . "','" . $telefono . "','" . $email . "'," .  $empresa . ")";
+
+        //Ejecutar inserción
+        //$ejecutar = $mysql->query($registrar);
+        //echo "<h2>Se ha ingresado el usuario</h2>";
+        if ($mysql->query($registrar) === TRUE) {
+            echo "Se registro correctamente";
+            echo "<button><a href='login.html'>Ingresar</a></button>";
+          } else {
+            echo "Error: " . $sql . "<br>" . $mysql->error;
+          }
+
+    }
+    else{
+        echo "<h2>Algo no ha servido :( </h2>";
+        echo "<a href=index.html><h3>Regrese a la página de inicio</h3></a>";
+    }
+?>

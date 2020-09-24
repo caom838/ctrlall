@@ -1,21 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CtrlAll</title>
-</head>
-<body>
-<h1>CtrlALL</h1>
-<link href="https://fonts.googleapis.com/css2?family=Merienda+One&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Assets/Css/stylelogin.css">
-<form action="Login.php"method="post">
-    <input type="text" name="No.Cedula" placeholder="Ingrese su No.Cedula">
-    <input type="password" name="Contraseña" placeholder="Ingrese su Contraseña">
-    <span ><a Style="color:Black;"href="Signup.php">Crear Cuenta</a></span>
-    <input type="submit"value="Conectar">
+<?php
+    session_start();
+
+    include ('database.php');
+    if (isset($_POST['cc']) && !empty($_POST['cc'])) { //para verificar mejor 
+        $cc = $_POST['cc']; 
+        $psw = $_POST['psw'];
+    } else{
+        echo "<h2>Algo no ha servido :( </h2>";
+        echo "<a href=index.html><h3>Regrese a la página de inicio</h3></a>";
+    }
+    $consulta = "select * FROM empleados where cc =" . $cc  . " AND pw = " . $psw; 
+   
+
+    if ( $empleados = $mysql->query($consulta)) {
+     
+        /* determinar el número de filas del resultado */
+
+        $row_cnt = $empleados->num_rows;
     
+            if ($row_cnt >= 1){
+                $valores = mysqli_fetch_array($empleados);
+                $_SESSION["idEmpleado"] = $valores["idEmpleado"];    
 
-</form>    
-</body>
-</html>
+                header("Location: dashboard/index.php?idEmpleado=" . $valores['idEmpleado']);
+                
 
+            }else{
+            echo "verifique sus datos";
+
+            }
+         
+        } else {
+            echo "Error: " . $sql . "<br>" . $mysql->error;
+    }
+
+?>
