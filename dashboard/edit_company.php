@@ -17,8 +17,7 @@
 				$row = mysqli_fetch_assoc($sql);
 			}
 			if(isset($_POST['save'])){
-            //$idEmpresa		     = mysqli_real_escape_string($mysql,(strip_tags($_POST["idEmpresa"],ENT_QUOTES)));//Escanpando caracteres 
-            $nitEmpresa		     = mysqli_real_escape_string($mysql,(strip_tags($_POST["nitEmpresa"],ENT_QUOTES)));//Escanpando caracteres 
+            	$nitEmpresa		     = mysqli_real_escape_string($mysql,(strip_tags($_POST["nitEmpresa"],ENT_QUOTES)));//Escanpando caracteres 
 				$nombre		     = mysqli_real_escape_string($mysql,(strip_tags($_POST["nombre"],ENT_QUOTES)));//Escanpando caracteres 
 				$telefono	 = mysqli_real_escape_string($mysql,(strip_tags($_POST["telefono"],ENT_QUOTES)));//Escanpando caracteres 
 				$direccion	     = mysqli_real_escape_string($mysql,(strip_tags($_POST["direccion"],ENT_QUOTES)));//Escanpando caracteres 

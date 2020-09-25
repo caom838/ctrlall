@@ -7,47 +7,49 @@
 <div class="container">
    <h1>Perfil</h1>
    <?php 
-         echo $_SESSION["idEmpleado"]; 
-         $consulta = " select * FROM empleados where idEmpleado =" . $_SESSION["idEmpleado"]; 
-   
-
-        if ( $empleados = $mysql->query($consulta)) {
-         $valores = mysqli_fetch_array($empleados);
-         echo $valores["nombre"];
-         echo $valores["apellido"];
-         echo $valores["cargo"];
-         echo $valores["telefono"];
-
-
-        };
+         
+         $consulta = "select e.*,em.nombre as nombreempresa , c.nombre as nombrecargo FROM empleados e"
+         ." inner join empresas em on e.idEmpresa = em.IdEmpresa "
+         ." inner join cargos c on e.idCargo = c.idCargo "
+         ." where idEmpleado =" . $_SESSION["idEmpleado"]; 
+         $sql = $mysql->query($consulta);
+         $row = mysqli_fetch_assoc($sql);
+        
    ?> 
 
-   <head>
-   <style>
-      table, th, td {
-      border: 1px solid black;
-}
-   </style>
-   </head>
-
-   <table style="width:100%">
-   
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>Age</th>
-   </tr>
-   <tr>
-      <td>Jill</td>
-      <td>Smith</td>
-      <td>50</td>
-   </tr>
-   <tr>
-       <td>Eve</td>
-       <td>Jackson</td>
-       <td>94</td>
-   </tr>
- </table>
+<table class="table table-striped table-condensed">
+				<tr>
+					<th width="20%">Cédula</th>
+					<td><?php echo $row['cc']; ?></td>
+				</tr>
+				<tr>
+					<th>Nombre del empleado</th>
+					<td><?php echo $row['nombre']; ?></td>
+				</tr>
+				<tr>
+					<th>Apellido</th>
+					<td><?php echo $row['apellido']; ?></td>
+				</tr>
+				<tr>
+					<th>Teléfono</th>
+					<td><?php echo $row['telefono']; ?></td>
+            </tr>
+            <tr>
+					<th>E-Mail</th>
+					<td><?php echo $row['email']; ?></td>
+            </tr>
+            <tr>
+					<th>Cargo</th>
+					<td><?php echo $row['nombrecargo']; ?></td>
+				</tr>
+				<tr>
+					<th>Empresa</th>
+					<td><?php echo $row['nombreempresa']; ?></td>
+				</tr>
+				
+				
+			</table>  
+         <a href="edit_profile.php?nik=<?php echo $row['idEmpleado']; ?>" class="btn btn-sm btn-success"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Editar datos</a>
 
 
 

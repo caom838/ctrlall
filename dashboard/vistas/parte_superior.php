@@ -32,7 +32,7 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <img src="img/LogoCtrlAll.jpg"  width="80" height="80"/>
         </div>
         <div class="sidebar-brand-text mx-3"></div>
         
@@ -61,13 +61,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
           <i class="fas fa-fw fa-folder"></i>
-          <span>Pages</span>
+          <span>Administracion</span>
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Login Screens:</h6>
+            <h6 class="collapse-header">Login:</h6>
             <a class="collapse-item" href="../login.php">Login</a>
-            <a class="collapse-item" href="register.html">Register</a>
             <a class="collapse-item" href="companies.php">Empresas</a>
             <a class="collapse-item" href="bosses.php">Jefes</a>
             <a class="collapse-item" href="positions.php">Cargos</a>
@@ -79,7 +78,7 @@
       <li class="nav-item">
         <a class="nav-link" href="charts.php">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Asistencias</span></a>
       </li>
 
       <!-- Divider -->
@@ -145,7 +144,7 @@
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">bobito</span>
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Perfil</span>
                 
               </a>
               <!-- Dropdown - User Information -->

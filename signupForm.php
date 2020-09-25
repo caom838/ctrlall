@@ -28,9 +28,8 @@
             <?php
                 $cargos= $mysql -> query ("SELECT * FROM cargos");
                 while ($valores = mysqli_fetch_array($cargos)) {
-                   echo "<option>";
-                   echo $valores['nombre'];
-                   echo "</option>";
+                   echo '<option value="'.$valores['idCargo'].'">'.$valores['nombre'].'</option>';
+                
                }
             ?>
         </select>

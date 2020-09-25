@@ -9,7 +9,7 @@
         echo "<h2>Algo no ha servido :( </h2>";
         echo "<a href=index.html><h3>Regrese a la página de inicio</h3></a>";
     }
-    $consulta = "select * FROM empleados where cc =" . $cc  . " AND pw = " . $psw; 
+    $consulta = "select * FROM empleados where cc ='$cc' AND pw ='$psw' "; 
    
 
     if ( $empleados = $mysql->query($consulta)) {
@@ -31,7 +31,7 @@
             }
          
         } else {
-            echo "Error: " . $sql . "<br>" . $mysql->error;
+            echo "Error: " . $consulta . "<br>" . $mysql->error;
     }
 
 ?>
