@@ -10,7 +10,7 @@
 			<?php
 			// escaping, additionally removing everything that could be (html/javascript-) code
 			$nik = mysqli_real_escape_string($mysql,(strip_tags($_GET["nik"],ENT_QUOTES)));
-			$sql = mysqli_query($mysql, "SELECT * FROM empresas WHERE idEmpresa='$nik'");
+			$sql = $mysql->query("SELECT * FROM empresas WHERE idEmpresa='$nik'");
 			if(mysqli_num_rows($sql) == 0){
             header("Location: companies.php");
 			}else{
