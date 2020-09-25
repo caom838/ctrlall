@@ -18,7 +18,7 @@
         }
 
         //Realizamos la inserción de datos en empleados
-        $registrar = "INSERT INTO empleados (nombre , apellido , pw , cc , cargo , telefono , email , idEmpresa )". 
+        $registrar = "INSERT INTO empleados (nombre , apellido , pw , cc , idcargo , telefono , email , idEmpresa )". 
         " VALUES ('". $nombre."','" . $apellido."','" . $pw . "','" . $cc  . "','" . $cargo . "','" . $telefono . "','" . $email . "'," .  $empresa . ")";
 
         //Ejecutar inserción
